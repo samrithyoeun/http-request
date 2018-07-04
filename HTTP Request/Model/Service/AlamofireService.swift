@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  AlmofireService.swift
 //  HTTP Request
 //
 //  Created by PM Academy 3 on 7/4/18.
@@ -7,31 +7,26 @@
 //
 
 import Foundation
+import Alamofire
 import SwiftyJSON
 
-struct User: Decodable {
-    var guid: String
-    var index: Int
-    var favoriteFruit: String
-    var company: String
-    var email: String
-    var picture: String
-    var tags: [String]
-    var registered: String
-    var eyeColor: String
-    var phone: String
-    var address: String
-    var friends: [Friend]
-    var isActive: Bool
-    var about: String
-    var balance: String
-    var name: String
-    var gender: String
-    var age: Int
-    var greeting: String
-    var longitude: Float
-    var latitude: Float
-    var _id: String
+class AlamofireService {
+    static func makeRequest(hander: @escaping ([User]) -> () ){
+        let url = URL(string: ServerEnvironment.urlString)!
+        Alamofire.request(url, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                var users = [User]()
+                for user in json.arrayValue{
+                    users.append(AlamofireService.map(user))
+                }
+                hander(users)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     static func map(_ value: JSON) -> User{
         let guid = value["guid"].string!
@@ -63,9 +58,6 @@ struct User: Decodable {
         let _id = value["_id"].string!
         
         let user = User(guid: guid, index: index, favoriteFruit: favoriteFruit, company: company, email: email, picture: picture, tags: tags, registered: registered, eyeColor: eyeColor, phone: phone, address: address, friends: friends, isActive: isActive, about: about, balance: balance, name: name, gender: gender, age: age, greeting: greeting, longitude: longitude, latitude: latitude, _id: _id)
-        print("=======================")
-        print(user)
-        print("=======================")
         return user
     }
 }

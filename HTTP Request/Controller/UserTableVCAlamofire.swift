@@ -43,4 +43,12 @@ class UserTableVCAlamofire: UITableViewController {
         return 105
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailVC = segue.destination as? UserDetailTableVC, let cell = sender as? UITableViewCell {
+            if let indexPath = tableView!.indexPath(for: cell){
+                print(indexPath.row)
+                detailVC.users.insert(users[indexPath.row], at: 0)
+            }
+        }
+    }
 }

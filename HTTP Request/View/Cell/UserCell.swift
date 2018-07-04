@@ -17,7 +17,7 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var balanceLabel: UILabel!
     
     func bindFrom(_ user: User){
-        userImageView.image = UIImage(named: user.picture)
+        userImageView.image = UIImage(contentsOfFile: user.picture)
         nameLabel.text = user.name
         genderLabel.text = "Gender : " + user.gender
         phoneLabel.text = "TEL: " + user.phone

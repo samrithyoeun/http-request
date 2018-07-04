@@ -93,10 +93,7 @@
 				5371122020EC849900309115 /* Model */,
 				5371122520EC894400309115 /* View */,
 				5371122A20EC9BBB00309115 /* Controller */,
-				53568C3B20EC6B000077E4F4 /* Assets.xcassets */,
-				53568C3D20EC6B000077E4F4 /* LaunchScreen.storyboard */,
-				53568C4020EC6B000077E4F4 /* Info.plist */,
-				53568C3820EC6AFD0077E4F4 /* HTTP_Request.xcdatamodeld */,
+				CD66BB4020ECC2C900B220FE /* SupportingFile */,
 			);
 			path = "HTTP Request";
 			sourceTree = "<group>";
@@ -104,11 +101,9 @@
 		5371122020EC849900309115 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5371121C20EC81DA00309115 /* HttpService.swift */,
-				5371122820EC994E00309115 /* AlamofireService.swift */,
 				5371121E20EC834100309115 /* ServerEnvironment.swift */,
-				5371122120EC85BE00309115 /* User.swift */,
-				5371122320EC85D100309115 /* Friend.swift */,
+				CD66BB4320ECC3C500B220FE /* Service */,
+				CD66BB4220ECC3B800B220FE /* Entity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,8 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				53568C3520EC6AFD0077E4F4 /* Main.storyboard */,
-				5371122620EC897B00309115 /* UserCell.swift */,
-				5371122F20ECB5E400309115 /* FriendCell.swift */,
+				CD66BB4120ECC39B00B220FE /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -140,6 +134,44 @@
 				D580905E46AA48A2ACEB9857 /* Pods-HTTP Request.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CD66BB4020ECC2C900B220FE /* SupportingFile */ = {
+			isa = PBXGroup;
+			children = (
+				53568C3B20EC6B000077E4F4 /* Assets.xcassets */,
+				53568C3D20EC6B000077E4F4 /* LaunchScreen.storyboard */,
+				53568C4020EC6B000077E4F4 /* Info.plist */,
+				53568C3820EC6AFD0077E4F4 /* HTTP_Request.xcdatamodeld */,
+			);
+			path = SupportingFile;
+			sourceTree = "<group>";
+		};
+		CD66BB4120ECC39B00B220FE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5371122620EC897B00309115 /* UserCell.swift */,
+				5371122F20ECB5E400309115 /* FriendCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CD66BB4220ECC3B800B220FE /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				5371122120EC85BE00309115 /* User.swift */,
+				5371122320EC85D100309115 /* Friend.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CD66BB4320ECC3C500B220FE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5371121C20EC81DA00309115 /* HttpService.swift */,
+				5371122820EC994E00309115 /* AlamofireService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,7 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LCN239U73A;
-				INFOPLIST_FILE = "HTTP Request/Info.plist";
+				INFOPLIST_FILE = "HTTP Request/SupportingFile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,7 +465,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LCN239U73A;
-				INFOPLIST_FILE = "HTTP Request/Info.plist";
+				INFOPLIST_FILE = "HTTP Request/SupportingFile/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
